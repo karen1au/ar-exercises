@@ -10,6 +10,6 @@ require_relative '../lib/employee'
 
 puts "Exercise 7"
 puts "----------"
-@store1.employees.create!(first_name: "Karen", last_name: "Lau", hourly_rate: 60)
+@store1.employees.create!(first_name: "Karen", last_name: "Lau", hourly_rate: 60, password: "12345678")
 me = Employee.find_by_first_name("Karen")
 puts me.password
