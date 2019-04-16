@@ -11,5 +11,5 @@ require_relative '../lib/employee'
 puts "Exercise 7"
 puts "----------"
 @store1.employees.create!(first_name: "Karen", last_name: "Lau", hourly_rate: 60)
-me = Employee.where(first_name: "Karen")
-puts me[0].password
+me = Employee.find_by_first_name("Karen")
+puts me.password

@@ -3,11 +3,12 @@ class Employee < ActiveRecord::Base
   validates :first_name, :last_name, :store, presence: true
   validates :hourly_rate, inclusion: { in: 40..200}
 
-  before_create :generate_password
+  after_create :generate_password
 
   private
   
   def generate_password
-    self.password = ([*('A'..'Z'),*(0..9),*('a'..'z')]).sample(8).join if password.blank?
+    pw = ([*('A'..'Z'),*(0..9),*('a'..'z')]).sample(8).join
+    self.update(password: pw )  
   end
 end
